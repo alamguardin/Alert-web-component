@@ -1,3 +1,5 @@
+import './style.css'
+
 class Alert extends HTMLElement {
 	constructor() {
 		super();
@@ -11,13 +13,44 @@ class Alert extends HTMLElement {
 	}
 
 	default(message) {
-		this.innerHTML += `<div>${message}</div>`;
+        const alertElement = document.createElement('div')
+        alertElement.setAttribute('class', 'alert-default')
+        alertElement.textContent = message
+        this.insertBefore(alertElement, this.firstChild)
+		this.#removeAlert();
+	}
+
+    info(message) {
+		const alertElement = document.createElement('div')
+        alertElement.setAttribute('class', 'alert-info')
+        alertElement.textContent = message
+        this.insertBefore(alertElement, this.firstChild)
+		this.#removeAlert();
+	}
+
+    error(message) {
+		const alertElement = document.createElement('div')
+        alertElement.setAttribute('class', 'alert-error')
+        alertElement.textContent = message
+        this.insertBefore(alertElement, this.firstChild)
+		this.#removeAlert();
+	}
+
+    warning(message) {
+		const alertElement = document.createElement('div')
+        alertElement.setAttribute('class', 'alert-warning')
+        alertElement.textContent = message
+        this.insertBefore(alertElement, this.firstChild)
+		this.#removeAlert();
+	}
+
+    success(message) {
+		const alertElement = document.createElement('div')
+        alertElement.setAttribute('class', 'alert-success')
+        alertElement.textContent = message
+        this.insertBefore(alertElement, this.firstChild)
 		this.#removeAlert();
 	}
 }
 
 customElements.define("use-alert", Alert);
-
-const alert = document.querySelector("#alert");
-
-document.addEventListener("click", () => alert.default("This is my Alert"));

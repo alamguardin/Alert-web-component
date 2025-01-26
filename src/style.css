@@ -20,4 +20,8 @@
     --fg-error-dark: #FDA4AF;
     --fg-warning-dark: #FDE047;
     --fg-succes-dark: #86EFAC;
+
+    /* Default Styles */
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

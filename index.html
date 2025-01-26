@@ -11,8 +11,42 @@
 <body>
     <div id="app">
         <use-alert id="alert"></use-alert>
+        <form id="form-alerts">
+            <button id="btn-default">Default</button>
+            <button id="btn-info">Info</button>
+            <button id="btn-error">Error</button>
+            <button id="btn-warning">Warning</button>
+            <button id="btn-success">Success</button>
+        </form>
     </div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+        const alert = document.getElementById('alert')
+        const form = document.getElementById('form-alerts')
+
+        form.addEventListener('click', (e) => {
+            e.preventDefault()
+            switch (e.target.id) {
+                case 'btn-default':
+                    alert.default('This is a default Alert!')
+                    break;
+                case 'btn-info':
+                    alert.info('This is a info Alert!')
+                    break;
+                case 'btn-error':
+                    alert.error('This is a error Alert!')
+                    break;
+                case 'btn-warning':
+                    alert.warning('This is a warning Alert!')
+                    break;
+                case 'btn-success':
+                    alert.success('This is a success Alert!')
+                    break;
+                default:
+                    break;
+            }
+        })
+    </script>
 </body>
 
 </html>
