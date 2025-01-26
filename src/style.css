@@ -23,5 +23,31 @@
 
     /* Default Styles */
     font-size: 16px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Satoshi', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.alert-container {
+    position: absolute;
+    top: 0;
+    padding: 0;
+}
+
+.alert-container div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: fit-content;
+    margin: 1rem;
+    padding: 1.125rem 1rem;
+    border: 1px solid var(--border-default-light);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--fg-default-light);
+}
+
+.alert-container div svg {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--fg-default-light);
 }

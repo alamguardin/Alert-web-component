@@ -1,8 +1,12 @@
-import './style.css'
+import "./style.css";
+import Icons from "./icons";
 
 class Alert extends HTMLElement {
+	#icons = new Icons();
+
 	constructor() {
 		super();
+		this.setAttribute("class", "alert-container");
 		this.richColor = false;
 	}
 
@@ -13,42 +17,42 @@ class Alert extends HTMLElement {
 	}
 
 	default(message) {
-        const alertElement = document.createElement('div')
-        alertElement.setAttribute('class', 'alert-default')
-        alertElement.textContent = message
-        this.insertBefore(alertElement, this.firstChild)
+		const alertElement = document.createElement("div");
+		alertElement.setAttribute("class", "alert-default");
+		alertElement.textContent = message;
+		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
 	}
 
-    info(message) {
-		const alertElement = document.createElement('div')
-        alertElement.setAttribute('class', 'alert-info')
-        alertElement.textContent = message
-        this.insertBefore(alertElement, this.firstChild)
+	info(message) {
+		const alertElement = document.createElement("div");
+		alertElement.setAttribute("class", "alert-info");
+		alertElement.innerHTML = `${this.#icons.INFO} ${message}`;
+		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
 	}
 
-    error(message) {
-		const alertElement = document.createElement('div')
-        alertElement.setAttribute('class', 'alert-error')
-        alertElement.textContent = message
-        this.insertBefore(alertElement, this.firstChild)
+	error(message) {
+		const alertElement = document.createElement("div");
+		alertElement.setAttribute("class", "alert-error");
+		alertElement.innerHTML = `${this.#icons.ERROR} ${message}`;
+		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
 	}
 
-    warning(message) {
-		const alertElement = document.createElement('div')
-        alertElement.setAttribute('class', 'alert-warning')
-        alertElement.textContent = message
-        this.insertBefore(alertElement, this.firstChild)
+	warning(message) {
+		const alertElement = document.createElement("div");
+		alertElement.setAttribute("class", "alert-warning");
+		alertElement.innerHTML = `${this.#icons.WARNING} ${message}`;
+		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
 	}
 
-    success(message) {
-		const alertElement = document.createElement('div')
-        alertElement.setAttribute('class', 'alert-success')
-        alertElement.textContent = message
-        this.insertBefore(alertElement, this.firstChild)
+	success(message) {
+		const alertElement = document.createElement("div");
+		alertElement.setAttribute("class", "alert-success");
+		alertElement.innerHTML = `${this.#icons.SUCCESS} ${message}`;
+		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
 	}
 }
