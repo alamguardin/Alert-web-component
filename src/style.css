@@ -5,12 +5,12 @@
     --bg-info-light: #E0F2FE;
     --bg-error-light: #FFE4E6;
     --bg-warning-light: #FEF9C3;
-    --bg-succes-light: #DCFCE7;
+    --bg-success-light: #DCFCE7;
     --fg-default-light: #09090B;
     --fg-info-light: #0EA5E9;
     --fg-error-light: #F43F5E;
     --fg-warning-light: #EAB308;
-    --fg-succes-light: #22C55E;
+    --fg-success-light: #22C55E;
 
     /* Dark Theme */
     --border-default-dark: #1F2937;
@@ -19,7 +19,7 @@
     --fg-info-dark: #7DD3FC;
     --fg-error-dark: #FDA4AF;
     --fg-warning-dark: #FDE047;
-    --fg-succes-dark: #86EFAC;
+    --fg-success-dark: #86EFAC;
 
     /* Default Styles */
     font-size: 16px;
@@ -30,24 +30,68 @@
     position: absolute;
     top: 0;
     padding: 0;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--bg-default-light);
+        max-width: fit-content;
+        margin: 1rem;
+        padding: 1.125rem 1rem;
+        border: 1px solid var(--border-default-light);
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--fg-default-light);
+
+        svg {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: var(--fg-default-light);
+        }
+    }
 }
 
-.alert-container div {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    max-width: fit-content;
-    margin: 1rem;
-    padding: 1.125rem 1rem;
-    border: 1px solid var(--border-default-light);
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--fg-default-light);
-}
+/* Rich Color Styles */
+.alert-container[richColor] {
+    .alert-info {
+        background: var(--bg-info-light);
+        border-color: var(--fg-info-light);
+        color: var(--fg-info-light);
 
-.alert-container div svg {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: var(--fg-default-light);
+        svg {
+            fill: var(--fg-info-light);
+        }
+    }
+
+    .alert-error {
+        background: var(--bg-error-light);
+        border-color: var(--fg-error-light);
+        color: var(--fg-error-light);
+
+        svg {
+            fill: var(--fg-error-light);
+        }
+    }
+
+    .alert-warning {
+        background: var(--bg-warning-light);
+        border-color: var(--fg-warning-light);
+        color: var(--fg-warning-light);
+
+        svg {
+            fill: var(--fg-warning-light);
+        }
+    }
+
+    .alert-success {
+        background: var(--bg-success-light);
+        border-color: var(--fg-success-light);
+        color: var(--fg-success-light);
+
+        svg {
+            fill: var(--fg-success-light);
+        }
+    }
 }

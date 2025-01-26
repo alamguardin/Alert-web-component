@@ -7,7 +7,6 @@ class Alert extends HTMLElement {
 	constructor() {
 		super();
 		this.setAttribute("class", "alert-container");
-		this.richColor = false;
 	}
 
 	#removeAlert() {
