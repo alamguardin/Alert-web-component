@@ -7,6 +7,8 @@ class Alert extends HTMLElement {
 	constructor() {
 		super();
 		this.setAttribute("class", "alert-container");
+		this.position = this.getAttribute("position");
+		console.log(this.position);
 	}
 
 	#removeAlert() {
@@ -19,13 +21,26 @@ class Alert extends HTMLElement {
 		}, 2500);
 	}
 
+	#addAlert(element) {
+		if (
+			this.position === "top-left" ||
+			this.position === "top-center" ||
+			this.position === "top-right"
+		) {
+			this.insertBefore(element, this.firstChild);
+		} else {
+			this.appendChild(element);
+		}
+
+		this.#removeAlert();
+	}
+
 	default(message) {
 		const alertElement = document.createElement("div");
 		alertElement.setAttribute("class", "alert-default");
 		alertElement.setAttribute("show", "");
 		alertElement.textContent = message;
-		this.insertBefore(alertElement, this.firstChild);
-		this.#removeAlert();
+		this.#addAlert(alertElement);
 	}
 
 	info(message) {
@@ -33,8 +48,7 @@ class Alert extends HTMLElement {
 		alertElement.setAttribute("class", "alert-info");
 		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.INFO} ${message}`;
-		this.insertBefore(alertElement, this.firstChild);
-		this.#removeAlert();
+		this.#addAlert(alertElement);
 	}
 
 	error(message) {
@@ -42,8 +56,7 @@ class Alert extends HTMLElement {
 		alertElement.setAttribute("class", "alert-error");
 		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.ERROR} ${message}`;
-		this.insertBefore(alertElement, this.firstChild);
-		this.#removeAlert();
+		this.#addAlert(alertElement);
 	}
 
 	warning(message) {
@@ -51,8 +64,7 @@ class Alert extends HTMLElement {
 		alertElement.setAttribute("class", "alert-warning");
 		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.WARNING} ${message}`;
-		this.insertBefore(alertElement, this.firstChild);
-		this.#removeAlert();
+		this.#addAlert(alertElement);
 	}
 
 	success(message) {
@@ -60,8 +72,7 @@ class Alert extends HTMLElement {
 		alertElement.setAttribute("class", "alert-success");
 		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.SUCCESS} ${message}`;
-		this.insertBefore(alertElement, this.firstChild);
-		this.#removeAlert();
+		this.#addAlert(alertElement);
 	}
 }
 
