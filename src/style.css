@@ -29,10 +29,13 @@
 .alert-container {
     position: absolute;
     top: 0;
+    bottom: unset;
+    left: 0;
+    right: unset;
     padding: 0;
 
     div {
-        display: flex;
+        scale: 0;
         align-items: center;
         gap: 0.5rem;
         background: var(--bg-default-light);
@@ -43,12 +46,24 @@
         border-radius: 0.5rem;
         font-size: 0.875rem;
         color: var(--fg-default-light);
+        transition: .2s scale ease,
+            .2s display ease allow-discrete;
 
         svg {
             display: inline-block;
             width: 1.5rem;
             height: 1.5rem;
             fill: var(--fg-default-light);
+        }
+    }
+
+    div[show] {
+        display: flex;
+        scale: 1;
+        transition: .2s scale ease;
+
+        @starting-style {
+            scale: 0
         }
     }
 }

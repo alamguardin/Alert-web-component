@@ -11,13 +11,18 @@ class Alert extends HTMLElement {
 
 	#removeAlert() {
 		setTimeout(() => {
-			this.lastChild.remove();
+			this.lastChild.removeAttribute("show");
 		}, 2000);
+
+		setTimeout(() => {
+			this.lastChild.remove();
+		}, 2500);
 	}
 
 	default(message) {
 		const alertElement = document.createElement("div");
 		alertElement.setAttribute("class", "alert-default");
+		alertElement.setAttribute("show", "");
 		alertElement.textContent = message;
 		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
@@ -26,6 +31,7 @@ class Alert extends HTMLElement {
 	info(message) {
 		const alertElement = document.createElement("div");
 		alertElement.setAttribute("class", "alert-info");
+		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.INFO} ${message}`;
 		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
@@ -34,6 +40,7 @@ class Alert extends HTMLElement {
 	error(message) {
 		const alertElement = document.createElement("div");
 		alertElement.setAttribute("class", "alert-error");
+		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.ERROR} ${message}`;
 		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
@@ -42,6 +49,7 @@ class Alert extends HTMLElement {
 	warning(message) {
 		const alertElement = document.createElement("div");
 		alertElement.setAttribute("class", "alert-warning");
+		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.WARNING} ${message}`;
 		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
@@ -50,6 +58,7 @@ class Alert extends HTMLElement {
 	success(message) {
 		const alertElement = document.createElement("div");
 		alertElement.setAttribute("class", "alert-success");
+		alertElement.setAttribute("show", "");
 		alertElement.innerHTML = `${this.#icons.SUCCESS} ${message}`;
 		this.insertBefore(alertElement, this.firstChild);
 		this.#removeAlert();
